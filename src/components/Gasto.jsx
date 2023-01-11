@@ -48,6 +48,13 @@ const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
             </SwipeAction>
         </TrailingActions >
     )
+
+    const formatearCantidad = (cantidad) => {
+        return cantidad.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+    }
     return (
         <SwipeableList>
             <SwipeableListItem
@@ -66,7 +73,7 @@ const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
                             </p>
                         </div>
                     </div>
-                    <p className='cantidad-gasto'>${cantidad}</p>
+                    <p className='cantidad-gasto'>{formatearCantidad(cantidad)}</p>
                 </div >
             </SwipeableListItem>
         </SwipeableList >
