@@ -17,6 +17,14 @@ const NuevoPresupuesto = ({
         setMensaje('')
         setIsValidPresupuesto(true)
     }
+
+    const formatearCantidad = (cantidad) => {
+        return cantidad.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+    }
+
     return (
         <div className="contenedor-presupuesto contenedor sombra">
             <form
@@ -28,7 +36,7 @@ const NuevoPresupuesto = ({
                         type="number"
                         className="nuevo-presupuesto"
                         placeholder="Añade tu presupuesto"
-                        value={(presupuesto)}
+                        value={formatearCantidad(presupuesto)}
                         onChange={e => setPresupuesto(e.target.value)}
                     />
                 </div>
